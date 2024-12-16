@@ -23,35 +23,25 @@ export default function BlogPost({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(
-    null
-  );
   const [post, setPost] = useState<{ title: string; content: string } | null>(
     null
   );
   const [comments, setComments] = useState<string[]>([]);
   const [comment, setComment] = useState("");
 
-  // Resolve params promise
+  // Fetch the post once params are resolved
   useEffect(() => {
     const fetchParams = async () => {
-      const resolved = await params;
-      setResolvedParams(resolved);
+      const { id } = await params;
+      const post = blogPosts[id];
+      setPost(post || null); // Set post or null if not found
     };
     fetchParams();
   }, [params]);
 
-  // Fetch the post once params are resolved
-  useEffect(() => {
-    if (resolvedParams) {
-      const post = blogPosts[resolvedParams.id];
-      setPost(post || null); // Set post or null if not found
-    }
-  }, [resolvedParams]);
-
   const addComment = () => {
     if (comment.trim()) {
-      setComments([...comments, comment]);
+      setComments((prevComments) => [...prevComments, comment]);
       setComment("");
     }
   };

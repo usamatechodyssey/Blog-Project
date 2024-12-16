@@ -35,7 +35,7 @@ export default function BlogList() {
               href={`/post/${post.id}`}
               className="text-blue-600 hover:underline mt-2 inline-block"
             >
-              Read more →
+              Read more &rarr;
             </Link>
           </li>
         ))}
