@@ -8,8 +8,8 @@ export default function HomePage() {
       </h1>
       <p className="text-gray-700 text-lg">
         Dive into a world of technology, programming, and development insights.
-        Whether you're a beginner or an expert, there's something for everyone
-        here.
+        Whether you&apos;re a beginner or an expert, there&apos;s something for
+        everyone here.
       </p>
       <p className="text-gray-700 text-lg mt-4">
         Start exploring our articles to learn about cutting-edge frameworks like
